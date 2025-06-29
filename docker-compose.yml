@@ -7,6 +7,7 @@ services:
       - "5000:5000"
     depends_on:
       - scam_sms_service
+      
     env_file:
       - ./backend/.env
     networks:
@@ -48,6 +49,16 @@ services:
       - "8002:8002"
     networks:
       - scam_net
+    
+  parse_text_service:
+    build: ./services/parse_text
+    ports:
+      - "8003:8003"
+    env_file:
+      - ./services/parse_text/.env
+    networks:
+      - scam_net
+
 
 networks:
   scam_net:

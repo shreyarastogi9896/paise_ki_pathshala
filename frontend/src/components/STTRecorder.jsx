@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { ReactMediaRecorder } from "react-media-recorder";
 import axios from "axios";
 
-export default function STTRecorder() {
+export default function STTRecorder({ onTranscribed })  {
   const [transcript, setTranscript] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -20,7 +20,10 @@ export default function STTRecorder() {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
-      setTranscript(response.data.text || "No response");
+      const text = response.data.text || "No response";
+      setTranscript(text);
+      if (onTranscribed) onTranscribed(text); 
+
     } catch (err) {
       console.error("Transcription error:", err);
       setTranscript("❌ STT failed");

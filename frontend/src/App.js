@@ -10,6 +10,8 @@ function App() {
         <Link to="/sms" style={{ marginRight: 10 }}>🔍 SMS</Link>
         <Link to="/speak">🎤 STT</Link>
         <Link to="/lesson">Lesson</Link>
+    
+        <Link to="/expense">Expense</Link>
       </nav>
       <AppRoutes />
     </Router>

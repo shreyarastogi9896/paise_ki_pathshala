@@ -14,7 +14,7 @@ app.add_middleware(
 )
 
 # Load model (use "small" or "medium" for Hinglish)
-model = WhisperModel("small", compute_type="int8")  # Or "medium" for better results
+model = WhisperModel("medium", compute_type="int8")  # Or "medium" for better results
 
 @app.post("/speech-to-text")
 async def speech_to_text(audio: UploadFile = File(...)):

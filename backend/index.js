@@ -5,11 +5,13 @@ const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 const sttRoute = require('./routes/stt');
 const lessonRoute=require('./routes/lesson');
+const parseRoute = require('./routes/parser');
 const app = express();
 dotenv.config();
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/api', sttRoute);
+app.use('/api', parseRoute);
 app.use('/api', lessonRoute);
 
 

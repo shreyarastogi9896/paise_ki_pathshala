@@ -7,12 +7,20 @@ const sttRoute = require('./routes/stt');
 const lessonRoute=require('./routes/lesson');
 const parseRoute = require('./routes/parser');
 const app = express();
+const expenseRoutes = require('./routes/expense');
+const connectDB = require('./db/mongo');
+const ocrRoutes = require('./routes/ocr');
+connectDB();
+
 dotenv.config();
 app.use(cors());
+app.use(express.json());
+app.use('/api/expenses', expenseRoutes);
 app.use(bodyParser.json());
 app.use('/api', sttRoute);
 app.use('/api', parseRoute);
 app.use('/api', lessonRoute);
+app.use('/api', ocrRoutes);
 
 
 app.post('/api/sms-check', async (req, res) => {

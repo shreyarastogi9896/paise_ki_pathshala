@@ -7,9 +7,11 @@ services:
       - "5000:5000"
     depends_on:
       - scam_sms_service
-      
+      - mongo
     env_file:
       - ./backend/.env
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/expense_db
     networks:
       - scam_net
 
@@ -58,8 +60,31 @@ services:
       - ./services/parse_text/.env
     networks:
       - scam_net
+    
+  ocr_explain_service:
+    build: ./services/ocr_explain
+    ports:
+      - "8004:8004"
+    env_file:
+      - ./services/ocr_explain/.env
+    networks:
+      - scam_net
+
+
+  mongo:
+    image: mongo:6
+    container_name: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - scam_net
 
 
 networks:
   scam_net:
 
+volumes:
+  mongo_data:

@@ -5,11 +5,13 @@ import SMSPage from "../pages/SMSPage";
 import STTPage from "../pages/STTPage";
 import LessonPage from "../pages/LessonPage";
 import ExpensePage from "../pages/ExpensePage";
+import DocumentUpload from "../pages/DocumentUpload";
 
 export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/upload" element={<DocumentUpload />} />
       <Route path="/sms" element={<SMSPage />} />
       <Route path="/speak" element={<STTPage />} />
       <Route path="/lesson" element={<LessonPage />} />

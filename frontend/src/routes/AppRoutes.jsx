@@ -6,6 +6,7 @@ import STTPage from "../pages/STTPage";
 import LessonPage from "../pages/LessonPage";
 import ExpensePage from "../pages/ExpensePage";
 import DocumentUpload from "../pages/DocumentUpload";
+import FinalGuidePage from "../pages/FinalGuidePage";
 
 export default function AppRoutes() {
   return (
@@ -16,6 +17,7 @@ export default function AppRoutes() {
       <Route path="/speak" element={<STTPage />} />
       <Route path="/lesson" element={<LessonPage />} />
       <Route path="/expense" element={<ExpensePage />} />
+      <Route path="/final-guide" element={<FinalGuidePage />} />
     </Routes>
   );
 }

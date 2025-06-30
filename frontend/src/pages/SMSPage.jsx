@@ -40,7 +40,7 @@ export default function SMSPage() {
 
       {result && (
         <div style={{ marginTop: "20px" }}>
-          <h3>Result: {result.scam ? "🚨 Scam Detected" : "✅ Safe"}</h3>
+          <h3>Result: {result.scam ? " Scam Detected" : "Safe"}</h3>
           <p>Confidence: {(result.confidence * 100).toFixed(2)}%</p>
           {result.error && <p style={{ color: "red" }}>{result.error}</p>}
         </div>

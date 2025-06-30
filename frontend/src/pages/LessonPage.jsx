@@ -22,7 +22,7 @@ export default function LessonPage() {
 
   return (
     <div>
-      <h1>📚 Lesson Generator</h1>
+      <h1>Lesson Generator</h1>
       <input value={topic} onChange={e => setTopic(e.target.value)} placeholder="Enter topic (e.g., PPF)" />
       <button onClick={generateLesson}>Generate</button>
       <pre>{lesson}</pre>

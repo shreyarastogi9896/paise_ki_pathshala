@@ -70,6 +70,40 @@ services:
     networks:
       - scam_net
 
+  product_weight_service:
+    build: ./services/product_weight
+    ports:
+      - "8005:8005"
+    env_file:
+      - ./services/product_weight/.env
+    networks:
+      - scam_net
+  
+
+
+  news-sentiment-api:
+    build: ./services/sentiment
+    ports:
+      - "8006:8006"
+    env_file:
+      - ./services/sentiment/.env
+    networks:
+      - scam_net
+    restart: unless-stopped
+
+  mf_ranker_service:
+    build: ./services/mf_ranking
+    ports:
+      - "8007:8007"
+    networks:
+      - scam_net
+      
+  final_guide:
+    build: ./services/recommender
+    ports:
+      - "8008:8008"
+    networks:
+      - scam_net
 
   mongo:
     image: mongo:6
@@ -81,6 +115,7 @@ services:
       - mongo_data:/data/db
     networks:
       - scam_net
+
 
 
 networks:
